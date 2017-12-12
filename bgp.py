@@ -207,7 +207,7 @@ def main():
     sleep(args.sleep)
 
     for router in net.switches:
-        if router.name == ROGUE_AS_NAME or router.name == ROGUE_AS_NAME2 and not FLAGS_rogue_as:
+        if router.name == ROGUE_AS_NAME and not FLAGS_rogue_as:
             continue
         router.cmd("/usr/lib/quagga/zebra -f conf/zebra-%s.conf -d -i /tmp/zebra-%s.pid > logs/%s-zebra-stdout 2>&1" % (router.name, router.name, router.name))
         router.waitOutput()
