@@ -71,11 +71,13 @@ class SimpleTopo(Topo):
         # The topology has one router per AS
 	routers = []
         for i in xrange(num_ases):
-            router = self.addSwitch('R%d' % (i+1))
-	    routers.append(router)
+		if (i+1) !=5
+		    router = self.addSwitch('R%d' % (i+1))
+	            routers.append(router)
         hosts = []
         for i in xrange(num_ases):
-            router = 'R%d' % (i+1)
+		if (i+1) !=5
+                router = 'R%d' % (i+1)
             for j in xrange(num_hosts_per_as):
                 hostname = 'h%d-%d' % (i+1, j+1)
                 host = self.addNode(hostname)
