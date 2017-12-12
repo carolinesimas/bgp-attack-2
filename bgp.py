@@ -70,41 +70,98 @@ class SimpleTopo(Topo):
         num_hosts = num_hosts_per_as * num_ases
         # The topology has one router per AS
 	routers = []
-        for i in xrange(num_ases):
-		if (i+1) !=5
-		    router = self.addSwitch('R%d' % (i+1))
-	            routers.append(router)
-        hosts = []
-        for i in xrange(num_ases):
-		if (i+1) !=5
-                router = 'R%d' % (i+1)
-            for j in xrange(num_hosts_per_as):
-                hostname = 'h%d-%d' % (i+1, j+1)
+        router = self.addSwitch('R1')
+        routers.append(router)       
+        router = self.addSwitch('R2')
+        routers.append(router)       
+        router = self.addSwitch('R3')
+        routers.append(router)       
+        router = self.addSwitch('R4')
+        routers.append(router)  
+        router = self.addSwitch('R5')
+        routers.append(router)            
+        router = self.addSwitch('R6')
+        routers.append(router)       
+        router = self.addSwitch('R7')
+        routers.append(router)       
+        router = self.addSwitch('R8') 
+        routers.append(router)       
+        router = self.addSwitch('R9')   
+        routers.append(router)       
+        router = self.addSwitch('R10')
+	routers.append(router)      
+     
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (1, j+1)
                 host = self.addNode(hostname)
                 hosts.append(host)
-                self.addLink(router, host)
-        """
-        for i in xrange(num_ases-1):
-            self.addLink('R%d' % (i+1), 'R%d' % (i+2))
-        """
-        self.addLink('R1', 'R4')
+                self.addLink('R1', host)
+
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (2, j+1)
+                host = self.addNode(hostname)
+                hosts.append(host)
+                self.addLink('R2', host)
+
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (3, j+1)
+                host = self.addNode(hostname)
+                hosts.append(host)
+                self.addLink('R3', host)
+
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (4, j+1)
+                host = self.addNode(hostname)
+                hosts.append(host)
+                self.addLink('R4', host)
+
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (5, j+1)
+                host = self.addNode(hostname)
+                hosts.append(host)
+                self.addLink('R5', hostname)
+
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (6, j+1)
+                host = self.addNode(hostname)
+                hosts.append(host)
+                self.addLink('R6', host)
+
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (7, j+1)
+                host = self.addNode(hostname)
+                hosts.append(host)
+                self.addLink('R7', host)
+
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (8, j+1)
+                host = self.addNode(hostname)
+                hosts.append(host)
+                self.addLink('R8', host)
+
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (9, j+1)
+                host = self.addNode(hostname)
+                hosts.append(host)
+                self.addLink('R9', host)
+
+        for j in xrange(num_hosts_per_as):
+                hostname = 'h%d-%d' % (10, j+1)
+                host = self.addNode(hostname)
+                hosts.append(host)
+                self.addLink('R10', host)
+        
+	self.addLink('R1', 'R4')
         self.addLink('R2', 'R4')
         self.addLink('R3', 'R4')
+        self.addLink('R4', 'R5')
         self.addLink('R4', 'R6')
+        self.addLink('R5', 'R7')
         self.addLink('R6', 'R7')
         self.addLink('R7', 'R8')
         self.addLink('R7', 'R9')
 	self.addLink('R7', 'R10')
-        
-        routers.append(self.addSwitch('R5'))
-        for j in xrange(num_hosts_per_as):
-            hostname = 'h%d-%d' % (5, j+1)
-            host = self.addNode(hostname)
-            hosts.append(host)
-            self.addLink('R5', hostname)
-        # This MUST be added at the end
-        self.addLink('R4', 'R5')
-	self.addLink('R5', 'R7')
+    
         return
 
 
