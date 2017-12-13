@@ -3,9 +3,9 @@ BGP path hijacking attack inside Mininet
 
 BGP attack
 
-1) git clone https://github.com/carolinesimas/bgp-attack.git
+1) git clone https://github.com/carolinesimas/bgp-attack-2.git
 
-2) cd bgp-attack
+2) cd bgp-attack-2
 
 3) sudo python bgp.py
 
