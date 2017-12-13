@@ -89,7 +89,9 @@ class SimpleTopo(Topo):
         router = self.addSwitch('R9')   
         routers.append(router)       
         router = self.addSwitch('R10')
-	routers.append(router)      
+	routers.append(router)
+	
+	hosts = []
      
         for j in xrange(num_hosts_per_as):
                 hostname = 'h%d-%d' % (1, j+1)
